@@ -9,6 +9,13 @@ class Message extends Component {
     timeStamp: PropTypes.string.isRequired,
   }
 
+  isRemote() {
+    if (this.props.sender === 'Estragon') {
+      return 'chat-entry remote'
+    }
+    return 'chat-entry local'
+  }
+
   render() {
 
     const sender = this.props.sender;
@@ -16,13 +23,15 @@ class Message extends Component {
     const timeStamp = this.props.timeStamp;
 
     return (
-      <article className='entry-bubble'>
-      <div className='entry-body'>
+
+      <article className={this.isRemote()}>
       <h5 className='entry-name'>{sender}</h5>
-      <p className='entry-body'>{body}</p>
-      <Timestamp
+
+      <div className='entry-bubble'>
+        <p className='entry-body'>{body}</p>
+        <Timestamp
         time={timeStamp}
-      />
+        />
       </div>
 
       </article>

@@ -5,8 +5,8 @@ import Chatlog from './components/Chatlog';
 
 class App extends Component {
   render() {
-    const message=chatMessages[0]
     console.log(chatMessages);
+    const messages=chatMessages
 
     return (
       <div className="App">
@@ -15,7 +15,7 @@ class App extends Component {
         </header>
         <main className="App-main">
           <Chatlog
-            message={message}
+            messages={messages}
           />
         </main>
       </div>
